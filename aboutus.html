@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+<header class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-md">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+    <!-- Logo with hover animation -->
+    <a href="index.html" class="transform transition-transform duration-500 hover:scale-110">
+      <img src="picture/r.png" alt="Rachel's Digital Desk Logo" 
+           class="h-10 md:h-12 lg:h-14 object-contain">
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="index.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        Home <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+      <a href="aboutus.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        About Us <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+      <a href="highlights.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        Highlights <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+    </nav>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="md:hidden">
+      <button id="nav-toggle" class="focus:outline-none p-2 rounded-md hover:bg-gray-100 transition">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-md">
+    <a href="index.html" class="block px-6 py-3 border-b border-gray-200 hover:bg-gray-50 transition">Home</a>
+    <a href="aboutus.html" class="block px-6 py-3 border-b border-gray-200 hover:bg-gray-50 transition">About Us</a>
+    <a href="highlights.html" class="block px-6 py-3 hover:bg-gray-50 transition">Highlights</a>
+  </nav>
+</header>
+
+<body>
+
+  <!-- Our Story Section -->
+<section id="our-story" class="relative py-20 font-poppins bg-gradient-to-b from-gray-50 to-white" 
+         style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;">
+         <div class="absolute inset-0 bg-black/70"></div>
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <div class="relative container mx-auto px-6 lg:px-16 max-w-4xl mt-16">
+    <h2 class="text-4xl font-bold text-center text-white mb-12">
+      RDD <span class="text-white">Story</span>
+    </h2>
+
+    <div class="bg-white shadow-lg rounded-2xl p-10 relative z-10">
+      <div class="absolute inset-0 bg-gradient-to-tr from-[color:var(--maroon)]/10 to-transparent rounded-2xl"></div>
+      <div class="relative z-10 space-y-6 text-gray-700 leading-relaxed" style="text-align: justify; text-justify: inter-word;">
+
+        <h2 class="text-2xl md:text-3xl font-bold text-[color:var(--maroon)] mb-4 text-center">
+          Built from Courage, Driven by Dreams
+        </h2>
+
+        <p>
+          I am Rachel, the heart behind <span class="font-semibold text-[color:var(--maroon)]">Rachel’s Digital Desk</span>. 
+          In 2020, I took my first leap in building my own brand, Prima Bella PH, alongside balancing my full-time academic responsibilities. 
+          On my own, I learned to wear every hat—creating, managing, and figuring things out as I went, one step at a time.
+        </p>
+
+        <p>
+          Fast forward to 2023, a CEO believed in me enough to bring me into her marketing team, sparking my passion for helping brands grow.
+        </p>
+
+        <p>
+          On May 29, 2025, I took an even bolder step and launched Rachel’s Digital Desk. 
+          Within weeks, I secured two major clients and built a like-minded team fueled by creativity and a shared vision for growth.
+        </p>
+
+        <p>
+          Today, we are proud to work with a number of amazing brands. It all happened so quickly, and my heart is full of gratitude— 
+          for the trust, the growth, and the risks that blossomed into opportunities. By God’s grace, I believe we’ll continue to face our fears, 
+          seize new chances, and celebrate even more wins—together.
+        </p>
+
+        <p class="italic text-gray-600 text-center">
+          Malayo pa pero malayo na. 
+        </p>
+
+        <p class="font-medium text-gray-700 text-center">
+          <span class="font-semibold text-[color:var(--maroon)]">Proverbs 16:3:</span> 
+          "Commit to the Lord whatever you do, and He will establish your plans."
+        </p>
+
+        <div class="pt-6 text-center border-t border-gray-200">
+          <h3 class="text-2xl font-bold text-[color:var(--maroon)] mb-1">Rachel Ann Villa</h3>
+          <p class="text-gray-600 font-medium">Founder, Rachel’s Digital Desk</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder Profile Section -->
+<section id="founder" class="relative bg-gray-100 py-12"> <!-- py-12 gives equal top & bottom spacing -->
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start bg-white/90 rounded-xl shadow-lg p-8">
+
+      <!-- Photo -->
+      <div class="flex justify-center">
+        <img src="picture/profile.webp" alt="Rachel Ann M. Villa" class="rounded-xl shadow-lg max-w-sm w-full">
+      </div>
+
+      <!-- Info -->
+      <div>
+        <h2 class="section-title mb-4 text-[var(--maroon)]">Founder's Profile</h2>
+        <h3 class="text-xl font-semibold">Rachel Ann M. Villa</h3>
+        <p class="mb-2"> Email: 
+          <a href="mailto:rachelvilla.business@gmail.com" class="text-[var(--maroon)] hover:underline">
+            rachelvilla.business@gmail.com
+          </a>
+        </p>
+        <p class="mb-6"> Contact: 
+          <a href="tel:+639164102255" class="text-[var(--maroon)] hover:underline">
+            0916 410 2255
+          </a>
+        </p>
+
+        <h4 class="font-semibold text-lg mb-2">Education</h4>
+        <ul class="list-disc list-inside mb-6">
+          <li>Bachelor of Science in Psychology – Polytechnic University of the Philippines (PUP)  
+            <span class="block text-gray-600 text-sm italic">Graduated Magna Cum Laude</span>
+          </li>
+        </ul>
+
+        <h4 class="font-semibold text-lg mb-2">Professional Background</h4>
+        <ul class="list-disc list-inside mb-6">
+          <li>Entrepreneur with 5 years of business ownership experience</li>
+          <li>Over 3 years specializing in brand building, marketing, and digital growth</li>
+        </ul>
+
+        <h4 class="font-semibold text-lg mb-2">Core Expertise</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Brand Strategy & Development</li>
+          <li>Copywriting & Content Creation</li>
+          <li>Influencer Partnerships & Management</li>
+          <li>Social Media Strategy & Management</li>
+          <li>Marketing Communication & Campaigns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!--  Footer Section -->
+<footer class="relative w-full bg-cover bg-center text-white text-center" 
+        style="background-image: url('picture/bg.webp');" loading="lazy">
+  
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 py-16">
+    <!-- Footer Logo -->
+    <img src="picture/text6.webp" alt="Footer Logo" 
+         class="mx-auto mb-8 mt-5" style="width:500px;" loading="lazy">
+
+    <!-- Social Icons -->
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
+        <img src="picture/fb.png" alt="Facebook" 
+            class="w-14 h-14 hover:scale-110 transition">
+      </a>
+      <a href="https://www.instagram.com/rachelsdigitaldesk_/" target="_blank">
+        <img src="picture/IG.png" alt="Instagram" 
+            class="w-14 h-14 hover:scale-110 transition">
+      </a>
+      <a href="tel:+639164102255">
+        <img src="picture/viber.png" alt="Viber" 
+            class="w-14 h-14 hover:scale-110 transition">
+      </a>
+      <a href="mailto:rddmagic@gmail.com">
+        <img src="picture/email.png" alt="Email" 
+            class="w-14 h-14 hover:scale-110 transition">
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
