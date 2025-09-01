@@ -59,9 +59,6 @@
     .brand-slider-wrapper:hover .brand-slider {
       animation-play-state: paused;
     }
-</style>
-
-<style>
   .service-card ul,
   .service-card p {
     width: 100% !important;
@@ -141,9 +138,9 @@
   .featured-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;              /* mas maluwag pagitan */
+    gap: 15px;             
     margin: 0 auto;
-    width: 65%;             /* dati 80%, lumiit ng konti */
+    width: 65%;           
   }
 
   .featured-gallery img {
@@ -166,30 +163,6 @@
     .featured-gallery {
       grid-template-columns: 1fr; 
     }
-  /* services */
-    #servicesCarousel {
-    display: flex;
-    gap: 24px; /* matches your +24 in JS */
-    transition: transform 0.5s ease; /* smooth slide */
-    will-change: transform;
-  }
-    .service-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0; 
-  }
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  }
-
-  /* Overlay smooth fade */
-  .service-overlay {
-    animation: fadeIn 0.3s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-  }
   }
   :root { --maroon: #800000; }
   .service-card {
@@ -238,9 +211,42 @@
   .animated-btn {
     transition: all 0.3s ease;
   }
+   /* services */
+  #servicesCarousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  .service-card {
+    flex-shrink: 0;
+    width: 80%;
+    max-width: 280px;
+    height: 280px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  /* Highlight center card */
+  .active-card {
+    transform: scale(1.08);
+    z-index: 5;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  }
+
+  /* Overlay animation */
+  .service-overlay {
+    animation: fadeSlideIn 0.3s ease forwards;
+  }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
 
 </style>
-
 </head>
 
 <body class="bg-white text-gray-800">
@@ -263,21 +269,28 @@
 
     <!-- 🔗 Social Icons -->
     <div class="flex justify-center gap-5 md:gap-7">
-      <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
-        <img src="picture/fb.png" alt="Facebook" class="w-8 sm:w-10 md:w-12 lg:w-14 hover:scale-110 transition">
-      </a>
-      <a href="https://www.instagram.com/rachelsdigitaldesk_/" target="_blank">
-        <img src="picture/IG.png" alt="IG" class="w-8 sm:w-10 md:w-12 lg:w-14 hover:scale-110 transition">
-      </a>
-      <a href="tel:+639164102255">
-        <img src="picture/viber.png" alt="Call Us" class="w-8 sm:w-10 md:w-12 lg:w-14 hover:scale-110 transition">
-      </a>
-      <a href="mailto:rddmagic@gmail.com">
-        <img src="picture/email.png" alt="Email" class="w-8 sm:w-10 md:w-12 lg:w-14 hover:scale-110 transition">
-      </a>
-    </div>
+  <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
+    <img src="picture/fb.png" alt="Facebook" 
+         class="h-12 sm:h-14 md:h-16 lg:h-20 hover:scale-110 transition">
+  </a>
+  <a href="https://www.instagram.com/rachelsdigitaldesk_/" target="_blank">
+    <img src="picture/IG.png" alt="IG" 
+         class="h-12 sm:h-14 md:h-16 lg:h-20 hover:scale-110 transition">
+  </a>
+  <a href="tel:+639164102255">
+    <img src="picture/viber.png" alt="Call Us" 
+         class="h-12 sm:h-14 md:h-16 lg:h-20 hover:scale-110 transition">
+  </a>
+  <a href="mailto:rddmagic@gmail.com">
+    <img src="picture/email.png" alt="Email" 
+         class="h-12 sm:h-14 md:h-16 lg:h-20 hover:scale-110 transition">
+  </a>
+</div>
+
   </div>
 </header>
+
+
 
 <section id="our-story" class="relative py-20 bg-gradient-to-b from-gray-50 to-white font-poppins">
   <div class="container mx-auto px-6 lg:px-16 max-w-4xl">
@@ -337,24 +350,39 @@
 </section>
 
 
-<!--  Founder Profile Section -->
-<section id="founder" class="py-16 bg-gray-100 fade-up">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+<!-- Founder Profile Section -->
+<section id="founder" 
+  class="relative py-16 bg-gray-100 fade-up bg-cover bg-center" 
+  style="background-image: url('picture/bg.png');">
 
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-white/90 rounded-xl shadow-lg p-8">
+      
       <!-- Left: Photo -->
       <div class="flex justify-center">
-        <img src="picture/profile.png" alt="Rachel Ann M. Villa" class="rounded-xl shadow-lg max-w-sm w-full">
+        <img src="picture/profile.png" alt="Rachel Ann M. Villa" 
+             class="rounded-xl shadow-lg max-w-sm w-full">
       </div>
 
       <!-- Right: Info -->
       <div>
-        <h2 class="section-title mb-4">Founder's Profile</h2>
+        <h2 class="section-title mb-4 text-[var(--maroon)]">Founder's Profile</h2>
         <h3 class="text-xl font-semibold">Rachel Ann M. Villa</h3>
-        <p class="mb-2"> Email: <a href="mailto:rachelvilla.business@gmail.com" class="text-[var(--maroon)] hover:underline">rachelvilla.business@gmail.com</a></p>
-        <p class="mb-6"> Contact: <a href="tel:+639164102255" class="text-[var(--maroon)] hover:underline">0916 410 2255</a></p>
+        <p class="mb-2"> Email: 
+          <a href="mailto:rachelvilla.business@gmail.com" 
+             class="text-[var(--maroon)] hover:underline">
+             rachelvilla.business@gmail.com</a>
+        </p>
+        <p class="mb-6"> Contact: 
+          <a href="tel:+639164102255" 
+             class="text-[var(--maroon)] hover:underline">
+             0916 410 2255</a>
+        </p>
 
-       <!-- Education -->
+        <!-- Education -->
         <h4 class="font-semibold text-lg mb-2">Education</h4>
         <ul class="list-disc list-inside mb-6">
           <li>
@@ -362,7 +390,6 @@
             <span class="block text-gray-600 text-sm italic">Graduated Magna Cum Laude</span>
           </li>
         </ul>
-
 
         <!-- Professional Background -->
         <h4 class="font-semibold text-lg mb-2">Professional Background</h4>
@@ -381,16 +408,15 @@
           <li>Marketing Communication & Campaigns</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
+<!-- Services Section --> 
 <section id="services" class="py-20 bg-gray-100 relative font-poppins">
   <div class="container mx-auto px-6 text-center">
     <h2 class="mb-12 text-4xl font-bold text-[color:var(--maroon)]">
-       <span class="text-[color:var(--maroon)]">Services</span>
+      <span class="text-[color:var(--maroon)]">Services</span>
     </h2>
 
     <!-- Carousel Wrapper -->
@@ -399,11 +425,11 @@
       <div id="servicesCarousel" class="flex transition-transform duration-500 ease-in-out">
 
         <!-- Card 1 -->
-        <div class="service-card flex-shrink-0 w-72 h-72 bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer overflow-hidden flex items-center justify-center mx-3"
+        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
+                    overflow-hidden flex items-center justify-center mx-auto"
           style="background-image: url('picture/bg.png');"
           onclick="toggleOverlay(this)">
-          <h3 class="text-xl font-bold text-center px-4">Social Media Marketing</h3>
-
+          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Social Media Marketing</h3>
           <!-- Overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
@@ -418,11 +444,11 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="service-card flex-shrink-0 w-72 h-72 bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer overflow-hidden flex items-center justify-center mx-3"
+        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
+                    overflow-hidden flex items-center justify-center mx-auto"
           style="background-image: url('picture/bg.png');"
           onclick="toggleOverlay(this)">
-          <h3 class="text-xl font-bold text-center px-4">Content Marketing</h3>
-
+          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Content Marketing</h3>
           <!-- Overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
@@ -436,11 +462,11 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="service-card flex-shrink-0 w-72 h-72 bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer overflow-hidden flex items-center justify-center mx-3"
+        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
+                    overflow-hidden flex items-center justify-center mx-auto"
           style="background-image: url('picture/bg.png');"
           onclick="toggleOverlay(this)">
-          <h3 class="text-xl font-bold text-center px-4">Influencer / Affiliate / UGC Marketing</h3>
-
+          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Influencer / Affiliate / UGC Marketing</h3>
           <!-- Overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
@@ -456,11 +482,11 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="service-card flex-shrink-0 w-72 h-72 bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer overflow-hidden flex items-center justify-center mx-3"
+        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
+                    overflow-hidden flex items-center justify-center mx-auto"
           style="background-image: url('picture/bg.png');"
           onclick="toggleOverlay(this)">
-          <h3 class="text-xl font-bold text-center px-4">Events & Partnership Marketing</h3>
-
+          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Events & Partnership Marketing</h3>
           <!-- Overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
@@ -475,11 +501,11 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="service-card flex-shrink-0 w-72 h-72 bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer overflow-hidden flex items-center justify-center mx-3"
+        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
+                    overflow-hidden flex items-center justify-center mx-auto"
           style="background-image: url('picture/bg.png');"
           onclick="toggleOverlay(this)">
-          <h3 class="text-xl font-bold text-center px-4">Marketing Strategy & Consulting</h3>
-
+          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Marketing Strategy & Consulting</h3>
           <!-- Overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
@@ -491,6 +517,7 @@
               onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
           </div>
         </div>
+
       </div>
 
       <!-- Arrows -->
@@ -505,7 +532,6 @@
     </div>
   </div>
 </section>
-
 
 <section id="brand-partners" class="py-5 bg-light position-relative overflow-hidden">
   <div class="container text-center">
@@ -619,46 +645,58 @@
   </div>
 </section>
 
-<section id="creators-club" class="py-5 bg-light text-center">
-  <div class="container">
-    <!-- Title -->
-    <h2 class="section-title text-center mb-10 text-maroon">
-      Join our growing Creator’s Club
-    </h2>
 
-    <!-- Image Row -->
-    <div class="row justify-content-center g-1">
-      <div class="col-12 col-md-auto d-flex justify-content-center p-1">
-        <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
-          <img src="picture/CC.jpg" 
-               alt="Creator's Club 1" 
-               class="img-fluid rounded-4 shadow-lg hover-zoom" 
-               style="width:260px; cursor:pointer; transition:transform .3s;">
+<!-- Creators club -->
+<section id="creators-club" 
+  class="py-5 text-center position-relative bg-cover bg-center" 
+  style="background-image: url('picture/bg.png');">
+
+  <!-- Overlay (darken background) -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.4);"></div>
+
+  <div class="container position-relative">
+    
+    <!-- White/Grey Card Wrapper -->
+    <div class="p-5 rounded-4 shadow-lg mx-auto" style="background: #f8f9fa; max-width: 900px;">
+      
+      <!-- Title -->
+      <h2 class="section-title text-center mb-10 text-maroon">
+        Join our growing Creator’s Club
+      </h2>
+
+      <!-- Image Row -->
+      <div class="row justify-content-center g-0">
+        <div class="col-12 col-md-auto d-flex justify-content-center p-4">
+          <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
+            <img src="picture/CC.jpg" 
+                 alt="Creator's Club 1" 
+                 class="img-fluid rounded-4 shadow-lg hover-zoom" 
+                 style="width:260px; cursor:pointer; transition:transform .3s;">
+          </a>
+        </div>
+        <div class="col-12 col-md-auto d-flex justify-content-center p-4">
+          <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
+            <img src="picture/cc2.jpg" 
+                 alt="Creator's Club 2" 
+                 class="img-fluid rounded-4 shadow-lg hover-zoom" 
+                 style="width:260px; cursor:pointer; transition:transform .3s;">
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="mt-5 text-center">
+        <a href="https://web.facebook.com/groups/669114844630000" 
+           target="_blank" 
+           class="btn btn-lg px-5 py-3 fw-bold text-white shadow-lg animated-btn" 
+           style="background-color: var(--maroon); border-radius:50px;">
+          Join Now
         </a>
       </div>
-      <div class="col-12 col-md-auto d-flex justify-content-center p-1">
-        <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
-          <img src="picture/cc2.jpg" 
-               alt="Creator's Club 2" 
-               class="img-fluid rounded-4 shadow-lg hover-zoom" 
-               style="width:260px; cursor:pointer; transition:transform .3s;">
-        </a>
-      </div>
-    </div>
 
-    <!-- CTA Button -->
-    <div class="mt-5 text-center">
-      <a href="https://web.facebook.com/groups/669114844630000" 
-         target="_blank" 
-         class="btn btn-lg px-5 py-3 fw-bold text-white shadow-lg animated-btn" 
-         style="background-color: var(--maroon); border-radius:50px;">
-        Join Now
-      </a>
     </div>
   </div>
 </section>
-
-
 
 <!-- Featured Work Section -->
 <section id="featured-work" class="py-5 bg-light">
@@ -667,7 +705,6 @@
        <h2 class="section-title text-center mb-10 text-maroon">
    Featured Work
   </h2>
-      <p class="text-muted">Graphic design for brand’s Story, Post, Newsletter, IG Highlights, Poll and more.</p>
     </div>
 
     <div class="featured-gallery">
@@ -738,8 +775,7 @@
 </section>
 -->
 
-
-<!-- 🌙 Footer Section -->
+<!--  Footer Section -->
 <footer class="relative w-full bg-cover bg-center text-white text-center" 
         style="background-image: url('picture/bg.png');">
   
@@ -773,8 +809,6 @@
   </div>
 </footer>
 
-
-
 <!-- Services Script -->
 <script>
   let currentIndex = 0;
@@ -782,20 +816,21 @@
   function moveCarousel(direction) {
     const carousel = document.getElementById("servicesCarousel");
     const cards = carousel.querySelectorAll(".service-card");
-
     if (cards.length === 0) return;
 
-    // compute card width with margin
     const cardStyle = getComputedStyle(cards[0]);
-    const cardWidth = cards[0].offsetWidth +
-      parseInt(cardStyle.marginLeft) +
-      parseInt(cardStyle.marginRight);
+    const cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
 
-    const visibleCards = Math.floor(carousel.parentElement.offsetWidth / cardWidth);
+    let visibleCards;
+    if (window.innerWidth >= 1024) {
+      visibleCards = 3;
+    } else if (window.innerWidth >= 768) {
+      visibleCards = 2;
+    } else {
+      visibleCards = 1;
+    }
 
     currentIndex += direction;
-
-    // clamp index
     if (currentIndex < 0) currentIndex = 0;
     if (currentIndex > cards.length - visibleCards) {
       currentIndex = cards.length - visibleCards;
@@ -803,9 +838,16 @@
 
     const offset = -currentIndex * cardWidth;
     carousel.style.transform = `translateX(${offset}px)`;
+    
+    // highlight center card (desktop only)
+    cards.forEach((c, i) => c.classList.remove("active-card"));
+    if (window.innerWidth >= 1024) {
+      const centerIndex = currentIndex + 1;
+      if (cards[centerIndex]) cards[centerIndex].classList.add("active-card");
+    }
   }
 
-  // ==== Overlay Logic ====
+  // Overlay Logic
   function toggleOverlay(card) {
     document.querySelectorAll(".service-overlay").forEach(ov => ov.classList.add("hidden"));
     const overlay = card.querySelector(".service-overlay");
@@ -817,11 +859,6 @@
     overlay.classList.add("hidden");
   }
 </script>
-    
-
-
 
 </body>
 </html>
-
-
