@@ -9,426 +9,119 @@
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="index.css">
+  <script src="index.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --maroon: #800000;
-    }
-    body { font-family: 'Poppins', sans-serif; }
-    .fade-up { animation: fadeUp 1s ease-in-out forwards; opacity: 0; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } from { transform: translateY(20px); } }
-    .section-title { color: var(--maroon); font-weight: 700; font-size: 2rem; }
-    .service-card:hover { transform: translateY(-5px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
-    /*brands
-    /* Wrapper hides overflow */
-    .brand-slider-wrapper {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Auto-scroll animation */
-    .brand-slider {
-      display: flex;
-      width: max-content;
-      animation: scroll-left 40s linear infinite;
-    }
-    .brand-item {
-      flex: 0 0 auto;
-      width: 300px; 
-      transition: transform 0.3s ease;
-    }
-    .brand-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-    }
-    .brand-item:hover {
-      transform: scale(1.05);
-    }
-
-    /* Infinite scroll effect */
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } 
-    }
-
-    /* Pause when hover */
-    .brand-slider-wrapper:hover .brand-slider {
-      animation-play-state: paused;
-    }
-  .service-card ul,
-  .service-card p {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-
-    /* kill any multi-column layout that might be applied globally */
-    columns: auto !important;
-    column-count: 1 !important;
-    column-width: auto !important;
-    column-gap: normal !important;
-
-    /* normal wrapping */
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-
-    /* no automatic hyphen insertion */
-    hyphens: none !important;
-  }
-
-  /* bullets should not get their own column */
-  .service-card li {
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    hyphens: none !important;
-  }
-
-  :root {
-      --maroon: #800000;
-    }
-  /* Phone Screenshot Styling */
-  .phone-shot {
-    border-radius: 1.5rem;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    height: 500px;
-    object-fit: cover;
-  }
-
-  /* Card Hover Animation */
-  .featured-card:hover .phone-shot {
-    transform: scale(1.05) rotate(-1deg);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Overlay Effect */
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .featured-card:hover .overlay {
-    opacity: 1;
-  }
-
-  /* Animation on Scroll */
-  .featured-card {
-    animation: fadeUp 1s ease forwards;
-    opacity: 0;
-  }
-
-  @keyframes fadeUp {
-    from {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  /* Featured */
-  .featured-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;             
-    margin: 0 auto;
-    width: 65%;           
-  }
-
-  .featured-gallery img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-  }
-
-    
-  /* Responsive breakpoints */
-  @media (max-width: 992px) {
-    .featured-gallery {
-      grid-template-columns: repeat(2, 1fr); 
-    }
-  }
-
-  @media (max-width: 576px) {
-    .featured-gallery {
-      grid-template-columns: 1fr; 
-    }
-  }
-  :root { --maroon: #800000; }
-  .service-card {
-    width: 250px;
-    height: 300px;
-    margin: 0 15px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    flex-shrink: 0;
-  }
-  /*front*/
-.three-lines {
-  max-width: 750px;  /* adjust ito hanggang pumasok sa 3 linya */
-  margin: 0 auto;
-  text-align: center;
-}
-
-/*club button*/
- .animated-btn {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Scale & glow on hover */
-  .animated-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(128, 0, 0, 0.6); /* glowing maroon */
-    transition: all 0.3s ease;
-  }
-
-  /* Smooth transition always */
-  .animated-btn {
-    transition: all 0.3s ease;
-  }
-   /* services */
-  #servicesCarousel {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease;
-    will-change: transform;
-  }
-  .service-card {
-    flex-shrink: 0;
-    width: 80%;
-    max-width: 280px;
-    height: 280px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  }
-
-  /* Highlight center card */
-  .active-card {
-    transform: scale(1.08);
-    z-index: 5;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  }
-
-  /* Overlay animation */
-  .service-overlay {
-    animation: fadeSlideIn 0.3s ease forwards;
-  }
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(10px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-</style>
 </head>
 
 <body class="bg-white text-gray-800">
+<!-- Navbar -->
+<header class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-md">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-<!--  Hero Section -->
-<header class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white text-center" style="background-image: url('picture/bg.webp');" loading="lazy" > 
+    <!-- Logo with hover animation -->
+    <a href="index.html" class="transform transition-transform duration-500 hover:scale-110">
+      <img src="picture/r.png" alt="Rachel's Digital Desk Logo" 
+           class="h-10 md:h-12 lg:h-14 object-contain">
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="index.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        Home <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+      <a href="aboutus.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        About Us <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+      <a href="highlights.html" class="nav-link relative text-gray-800 font-medium hover:text-[var(--maroon)]">
+        Highlights <span class="absolute left-0 bottom-0 w-0 h-[2px] bg-[var(--maroon)] transition-all duration-300"></span>
+      </a>
+    </nav>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="md:hidden">
+      <button id="nav-toggle" class="focus:outline-none p-2 rounded-md hover:bg-gray-100 transition">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-md">
+    <a href="index.html" class="block px-6 py-3 border-b border-gray-200 hover:bg-gray-50 transition">Home</a>
+    <a href="aboutus.html" class="block px-6 py-3 border-b border-gray-200 hover:bg-gray-50 transition">About Us</a>
+    <a href="highlights.html" class="block px-6 py-3 hover:bg-gray-50 transition">Highlights</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="homepage" class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white text-center" style="background-image: url('picture/bg.webp');" loading="lazy">
   <div class="absolute inset-0 bg-black/60"></div>
-  <div class="relative z-10 mb-5">
+  <div class="relative z-10 mb-10 sm:mb-8 md:mb-6 flex flex-col items-center px-4">
+    
     <!-- Logo -->
     <img src="picture/logo1.webp" 
          alt="Logo" 
-         class="hero-logo mx-auto mb-6 w-28 sm:w-40 md:w-60 lg:w-80" loading="lazy">
+         class="hero-logo mx-auto mb-4 sm:mb-5 w-24 sm:w-32 md:w-48 lg:w-64" loading="lazy">
     
     <!-- Tagline -->
-    <p class="three-lines mb-5 px-4 md:px-0 text-sm sm:text-base md:text-lg lg:text-xl">
+    <p class="three-lines mb-4 sm:mb-5 text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl">
       We’re a growing Gen Z social media agency helping bold brands stand out. 
       From trends to strategy, we create content that connects, grows your audience, 
       and drives real results. Smart, creative, and always one step ahead.
     </p>
 
-    <div class="flex justify-center gap-4">
+    <!-- Social Icons -->
+    <div class="flex justify-center gap-3 sm:gap-4 md:gap-5">
       <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
-        <img src="picture/fb.png" alt="Facebook" 
-            class="w-16 h-16 hover:scale-110 transition">
+        <img src="picture/fb.png" alt="Facebook" class="w-12 sm:w-14 md:w-16 lg:w-20 hover:scale-110 transition">
       </a>
       <a href="https://www.instagram.com/rachelsdigitaldesk_/" target="_blank">
-        <img src="picture/IG.png" alt="IG" 
-            class="w-16 h-16 hover:scale-110 transition">
+        <img src="picture/IG.png" alt="IG" class="w-12 sm:w-14 md:w-16 lg:w-20 hover:scale-110 transition">
       </a>
       <a href="tel:+639164102255">
-        <img src="picture/viber.png" alt="Call Us" 
-            class="w-16 h-16 hover:scale-110 transition">
+        <img src="picture/viber.png" alt="Call Us" class="w-12 sm:w-14 md:w-16 lg:w-20 hover:scale-110 transition">
       </a>
       <a href="mailto:rddmagic@gmail.com">
-        <img src="picture/email.png" alt="Email" 
-            class="w-16 h-16 hover:scale-110 transition">
+        <img src="picture/email.png" alt="Email" class="w-12 sm:w-14 md:w-16 lg:w-20 hover:scale-110 transition">
       </a>
     </div>
-  </div>
-</header>
-
-
-
-<section id="our-story" class="relative py-20 bg-gradient-to-b from-gray-50 to-white font-poppins">
-  <div class="container mx-auto px-6 lg:px-16 max-w-4xl">
-
-    <!-- Section Title -->
-    <h2 class="text-4xl font-bold text-center text-[color:var(--maroon)] mb-12">
-      RDD <span class="text-[color:var(--maroon)]">Story</span>
-    </h2>
-
-    <!-- Story Paragraph -->
-<div class="bg-white shadow-lg rounded-2xl p-10 relative">
-  <div class="absolute inset-0 bg-gradient-to-tr from-[color:var(--maroon)]/10 to-transparent rounded-2xl"></div>
-  <div class="relative z-10 space-y-6 text-gray-700 leading-relaxed" style="text-align: justify; text-justify: inter-word;">
-
-    <!-- Intro Title -->
-    <h2 class="text-2xl md:text-3xl font-bold text-[color:var(--maroon)] mb-4 text-center">
-      Built from Courage, Driven by Dreams
-    </h2>
-
-    <p>
-      I am Rachel, the heart behind <span class="font-semibold text-[color:var(--maroon)]">Rachel’s Digital Desk</span>. 
-      In 2020, I took my first leap in building my own brand, Prima Bella PH, alongside balancing my full-time academic responsibilities. 
-      On my own, I learned to wear every hat—creating, managing, and figuring things out as I went, one step at a time.
-    </p>
-
-    <p>
-      Fast forward to 2023, a CEO believed in me enough to bring me into her marketing team, sparking my passion for helping brands grow.
-    </p>
-
-    <p>
-      On May 29, 2025, I took an even bolder step and launched Rachel’s Digital Desk</span>. 
-      Within weeks, I secured two major clients and built a like-minded team fueled by creativity and a shared vision for growth.
-    </p>
-
-    <p>
-      Today, we are proud to work with a number of amazing brands. It all happened so quickly, and my heart is full of gratitude—
-      for the trust, the growth, and the risks that blossomed into opportunities. By God’s grace, I believe we’ll continue to face our fears, 
-      seize new chances, and celebrate even more wins—together.
-    </p>
-
-    <p class="italic text-gray-600 text-center">
-      Malayo pa pero malayo na. 
-    </p>
-
-    <p class="font-medium text-gray-700 text-center">
-      <span class="font-semibold text-[color:var(--maroon)]">Proverbs 16:3:</span> 
-      "Commit to the Lord whatever you do, and He will establish your plans."
-    </p>
-
-    <!-- Founder Spotlight -->
-    <div class="pt-6 text-center border-t border-gray-200">
-      <h3 class="text-2xl font-bold text-[color:var(--maroon)] mb-1">Rachel Ann Villa</h3>
-      <p class="text-gray-600 font-medium">Founder, Rachel’s Digital Desk</p>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<!-- Founder Profile Section -->
-<section id="founder" 
-  class="relative py-16 bg-gray-100 fade-up bg-cover bg-center" 
-  style="background-image: url('picture/bg.webp');" loading="lazy">
-
-  <!-- Overlay for readability -->
-  <div class="absolute inset-0 bg-black/40"></div>
-
-  <div class="relative container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-white/90 rounded-xl shadow-lg p-8">
-      
-      <!-- Left: Photo -->
-      <div class="flex justify-center">
-        <img src="picture/profile.webp" alt="Rachel Ann M. Villa" 
-             class="rounded-xl shadow-lg max-w-sm w-full" loading="lazy">
-      </div>
-
-      <!-- Right: Info -->
-      <div>
-        <h2 class="section-title mb-4 text-[var(--maroon)]">Founder's Profile</h2>
-        <h3 class="text-xl font-semibold">Rachel Ann M. Villa</h3>
-        <p class="mb-2"> Email: 
-          <a href="mailto:rachelvilla.business@gmail.com" 
-             class="text-[var(--maroon)] hover:underline">
-             rachelvilla.business@gmail.com</a>
-        </p>
-        <p class="mb-6"> Contact: 
-          <a href="tel:+639164102255" 
-             class="text-[var(--maroon)] hover:underline">
-             0916 410 2255</a>
-        </p>
-
-        <!-- Education -->
-        <h4 class="font-semibold text-lg mb-2">Education</h4>
-        <ul class="list-disc list-inside mb-6">
-          <li>
-            Bachelor of Science in Psychology – Polytechnic University of the Philippines (PUP)  
-            <span class="block text-gray-600 text-sm italic">Graduated Magna Cum Laude</span>
-          </li>
-        </ul>
-
-        <!-- Professional Background -->
-        <h4 class="font-semibold text-lg mb-2">Professional Background</h4>
-        <ul class="list-disc list-inside mb-6">
-          <li>Entrepreneur with 5 years of business ownership experience</li>
-          <li>Over 3 years specializing in brand building, marketing, and digital growth</li>
-        </ul>
-
-        <!-- Core Expertise -->
-        <h4 class="font-semibold text-lg mb-2">Core Expertise</h4>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Brand Strategy & Development</li>
-          <li>Copywriting & Content Creation</li>
-          <li>Influencer Partnerships & Management</li>
-          <li>Social Media Strategy & Management</li>
-          <li>Marketing Communication & Campaigns</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
 <!-- Services Section --> 
-<section id="services" class="py-20 bg-gray-100 relative font-poppins">
+<section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative font-poppins">
   <div class="container mx-auto px-6 text-center">
-    <h2 class="mb-12 text-4xl font-bold text-[color:var(--maroon)]">
-      <span class="text-[color:var(--maroon)]">Services</span>
+    <h2 class="mb-12 text-4xl font-bold text-[var(--maroon)] relative inline-block">
+      <span class="text-[var(--maroon)]">Services</span>
     </h2>
+
 
     <!-- Carousel Wrapper -->
     <div class="relative overflow-hidden">
       <!-- Track -->
-      <div id="servicesCarousel" class="flex transition-transform duration-500 ease-in-out">
+      <div id="servicesCarousel" class="flex transition-transform duration-700 ease-in-out gap-6">
 
-        <!-- Card 1 -->
-        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
-                    overflow-hidden flex items-center justify-center mx-auto"
-          style="background-image: url('picture/bg.webp');"
+        <!-- Card Template -->
+        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
-          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Social Media Marketing</h3>
-          <!-- Overlay -->
+
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
+
+          <!-- Title -->
+          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+            Social Media Marketing
+          </h3>
+
+
+          <!-- Overlay Content -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Social media management (Instagram, Facebook, TikTok)</li>
@@ -441,13 +134,14 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
-                    overflow-hidden flex items-center justify-center mx-auto"
-          style="background-image: url('picture/bg.webp');"
-          onclick="toggleOverlay(this)" loading="lazy">
-          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Content Marketing</h3>
-          <!-- Overlay -->
+        <!-- Duplicate Cards (replace titles & overlay content accordingly) -->
+        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
+          onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
+        <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+            Content Marketing
+          </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Content strategy & calendar planning</li>
@@ -459,13 +153,13 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
-                    overflow-hidden flex items-center justify-center mx-auto"
-          style="background-image: url('picture/bg.webp');"
-          onclick="toggleOverlay(this)" loading="lazy">
-          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Influencer / Affiliate / UGC Marketing</h3>
-          <!-- Overlay -->
+        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
+          onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
+          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+            Influencer / Affiliate / UGC Marketing
+          </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Campaign planning</li>
@@ -479,13 +173,13 @@
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
-                    overflow-hidden flex items-center justify-center mx-auto"
-          style="background-image: url('picture/bg.webp');"
-          onclick="toggleOverlay(this)" loading="lazy">
-          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Events & Partnership Marketing</h3>
-          <!-- Overlay -->
+        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
+          onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
+          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+            Events & Partnership Marketing
+          </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Campaign planning</li>
@@ -498,13 +192,13 @@
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="service-card bg-cover bg-center text-white shadow-md rounded-2xl relative cursor-pointer
-                    overflow-hidden flex items-center justify-center mx-auto"
-          style="background-image: url('picture/bg.webp');"
-          onclick="toggleOverlay(this)" loading="lazy">
-          <h3 class="text-lg sm:text-xl font-bold text-center px-4">Marketing Strategy & Consulting</h3>
-          <!-- Overlay -->
+        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
+          onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
+         <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+            Marketing Strategy & Consulting
+          </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Full marketing plan development</li>
@@ -517,25 +211,26 @@
         </div>
       </div>
 
-      <!-- Arrows -->
+      <!-- Carousel Arrows -->
       <button onclick="moveCarousel(-1)"
-        class="absolute top-1/2 left-0 -translate-y-1/2 bg-[color:var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30">
+        class="absolute top-1/2 left-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
         &#10094;
       </button>
       <button onclick="moveCarousel(1)"
-        class="absolute top-1/2 right-0 -translate-y-1/2 bg-[color:var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30">
+        class="absolute top-1/2 right-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
         &#10095;
       </button>
     </div>
   </div>
 </section>
 
+
 <section id="brand-partners" class="py-5 bg-light position-relative overflow-hidden">
   <div class="container text-center">
 
     <!-- Title -->
     <h2 class="section-title text-center mb-10">
-      Our Brand Partners <span class="text-danger"></span>
+      Our Brand Partners
     </h2>
 
     <!-- Infinite Scrolling Wrapper -->
@@ -644,49 +339,40 @@
 
 
 <!-- Creators club -->
-<section id="creators-club" 
-  class="py-5 text-center position-relative bg-cover bg-center" 
-  style="background-image: url('picture/bg.webp');" loading="lazy">
+<section id="creators-club" class="py-12 text-center font-poppins">
 
-  <!-- Overlay (darken background) -->
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.4);"></div>
+  <div class="container">
 
-  <div class="container position-relative">
-    
-    <!-- White/Grey Card Wrapper -->
-    <div class="p-5 rounded-4 shadow-lg mx-auto" style="background: #f8f9fa; max-width: 900px;">
-      
+    <!-- Section Card Wrapper -->
+    <div class="mx-auto p-8 rounded-3xl shadow-xl bg-white" style="max-width: 900px; position: relative;">
+
       <!-- Title -->
-      <h2 class="section-title text-center mb-10 text-maroon">
+      <h2 class="section-title text-maroon mb-12 text-3xl md:text-4xl font-bold">
         Join our growing Creator’s Club
       </h2>
 
-      <!-- Image Row -->
-      <div class="row justify-content-center g-0">
-        <div class="col-12 col-md-auto d-flex justify-content-center p-4">
+      <!-- Creative Image Formation -->
+      <div class="d-flex justify-content-center flex-wrap gap-6">
+        <div class="creator-card" style="transform: rotate(-2deg);">
           <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
-            <img src="picture/CC.jpg" 
-                 alt="Creator's Club 1" 
-                 class="img-fluid rounded-4 shadow-lg hover-zoom" 
-                 style="width:260px; cursor:pointer; transition:transform .3s;">
+            <img src="picture/CC.jpg" alt="Creator's Club 1" 
+                 class="rounded-3xl shadow-lg hover-scale" style="width:260px; transition: transform .3s;">
           </a>
         </div>
-        <div class="col-12 col-md-auto d-flex justify-content-center p-4">
+        <div class="creator-card" style="transform: rotate(3deg);">
           <a href="https://web.facebook.com/groups/669114844630000" target="_blank" rel="noopener noreferrer">
-            <img src="picture/cc2.jpg" 
-                 alt="Creator's Club 2" 
-                 class="img-fluid rounded-4 shadow-lg hover-zoom" 
-                 style="width:260px; cursor:pointer; transition:transform .3s;">
+            <img src="picture/cc2.jpg" alt="Creator's Club 2" 
+                 class="rounded-3xl shadow-lg hover-scale" style="width:260px; transition: transform .3s;">
           </a>
         </div>
       </div>
 
       <!-- CTA Button -->
-      <div class="mt-5 text-center">
+      <div class="mt-10">
         <a href="https://web.facebook.com/groups/669114844630000" 
            target="_blank" 
-           class="btn btn-lg px-5 py-3 fw-bold text-white shadow-lg animated-btn" 
-           style="background-color: var(--maroon); border-radius:50px;">
+           class="btn btn-lg px-6 py-3 fw-bold text-white shadow-lg animated-btn" 
+           style="background-color: var(--maroon); border-radius:50px; transition: transform .3s;">
           Join Now
         </a>
       </div>
@@ -694,45 +380,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-<!-- Featured Work Section -->
-<section id="featured-work" class="py-5 bg-light">
-  <div class="container-fluid px-0">
-    <div class="text-center mb-4">
-       <h2 class="section-title text-center mb-10 text-maroon">
-   Featured Work
-  </h2>
-    </div>
-
-    <div class="featured-gallery">
-      <img src="picture/f0.jpg" alt="Work 1">
-      <img src="picture/f01.jpg" alt="Work 1">
-      <img src="picture/f1.jpg" alt="Work 2">
-      <img src="picture/f2.jpg" alt="Work 3">
-      <img src="picture/f3.jpg" alt="Work 4">
-      <img src="picture/f4.jpg" alt="Work 5">
-      <img src="picture/f5.jpg" alt="Work 6">
-      <img src="picture/f6.jpg" alt="Work 7">
-      <img src="picture/f7.jpg" alt="Work 8">
-      <img src="picture/f8.jpg" alt="Work 9">
-    </div>
-  </div>
-</section>
-
-
-<style>
-/* Smooth hover zoom effect */
-.hover-zoom {
-  transition: transform 0.3s ease;
-}
-.hover-zoom:hover {
-  transform: scale(1.08);
-}
-</style>
-
 
 <!--  Footer Section -->
 <footer class="relative w-full bg-cover bg-center text-white text-center" 
@@ -746,7 +393,7 @@
     <img src="picture/text6.webp" alt="Footer Logo" 
          class="mx-auto mb-8 mt-5" style="width:500px;" loading="lazy">
 
-   <!-- Social Icons -->
+    <!-- Social Icons -->
     <div class="flex justify-center gap-6 mb-6">
       <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
         <img src="picture/fb.png" alt="Facebook" 
@@ -768,59 +415,5 @@
   </div>
 </footer>
 
-<!-- Services Script -->
-<script>
-  let currentIndex = 0;
-
-  function moveCarousel(direction) {
-    const carousel = document.getElementById("servicesCarousel");
-    const cards = carousel.querySelectorAll(".service-card");
-    if (cards.length === 0) return;
-
-    const cardStyle = getComputedStyle(cards[0]);
-    const cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
-
-    let visibleCards;
-    if (window.innerWidth >= 1024) {
-      visibleCards = 3;
-    } else if (window.innerWidth >= 768) {
-      visibleCards = 2;
-    } else {
-      visibleCards = 1;
-    }
-
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex > cards.length - visibleCards) {
-      currentIndex = cards.length - visibleCards;
-    }
-
-    const offset = -currentIndex * cardWidth;
-    carousel.style.transform = `translateX(${offset}px)`;
-    
-    // highlight center card (desktop only)
-    cards.forEach((c, i) => c.classList.remove("active-card"));
-    if (window.innerWidth >= 1024) {
-      const centerIndex = currentIndex + 1;
-      if (cards[centerIndex]) cards[centerIndex].classList.add("active-card");
-    }
-  }
-
-  // Overlay Logic
-  function toggleOverlay(card) {
-    document.querySelectorAll(".service-overlay").forEach(ov => ov.classList.add("hidden"));
-    const overlay = card.querySelector(".service-overlay");
-    overlay.classList.toggle("hidden");
-  }
-
-  function closeOverlay(btn) {
-    const overlay = btn.closest(".service-overlay");
-    overlay.classList.add("hidden");
-  }
-</script>
-
-
 </body>
 </html>
-
-
