@@ -142,40 +142,69 @@
   .animated-btn {
     transition: all 0.3s ease;
   }
-   /* services */
-  #servicesCarousel {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease;
-    will-change: transform;
-  }
+
+
+/* services */
+#servicesCarousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.service-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 320px;
+  height: 280px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (min-width: 768px) {
   .service-card {
-    flex-shrink: 0;
-    width: 80%;
-    max-width: 280px;
-    height: 280px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 45%;
   }
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+@media (min-width: 1024px) {
+  .service-card {
+    width: 30%;
   }
+}
 
-  /* Highlight center card */
-  .active-card {
-    transform: scale(1.08);
-    z-index: 5;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
 
-  /* Overlay animation */
-  .service-overlay {
-    animation: fadeSlideIn 0.3s ease forwards;
+/* Highlight center card */
+.active-card {
+  transform: scale(1.08);
+  z-index: 5;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Overlay animation */
+.service-overlay {
+  animation: fadeSlideIn 0.3s ease forwards;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .service-card {
+    width: 90% !important;   
+    margin: 0 auto;         
   }
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(10px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
+}
+
+
 /*Creators club*/
   .hover-scale:hover {
     transform: scale(1.08) rotate(0deg);
