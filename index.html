@@ -59,10 +59,14 @@
 </header>
 
 <!-- Hero Section -->
-<section id="homepage" class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white text-center" style="background-image: url('picture/bg.webp');" loading="lazy">
+<section id="homepage" 
+  class="relative w-full min-h-[calc(100vh-72px)] bg-cover bg-center flex items-center justify-center text-white text-center pt-20" 
+  style="background-image: url('picture/bg.webp');" 
+  loading="lazy">
+  
   <div class="absolute inset-0 bg-black/60"></div>
+  
   <div class="relative z-10 mb-10 sm:mb-8 md:mb-6 flex flex-col items-center px-4">
-    
     <!-- Logo -->
     <img src="picture/logo1.webp" 
          alt="Logo" 
@@ -90,38 +94,30 @@
         <img src="picture/email.png" alt="Email" class="w-12 sm:w-14 md:w-16 lg:w-20 hover:scale-110 transition">
       </a>
     </div>
-    
   </div>
 </section>
 
-<!-- Services Section --> 
+
+<!-- Services Section --> > 
 <section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative font-poppins">
   <div class="container mx-auto px-6 text-center">
     <h2 class="mb-12 text-4xl font-bold text-[var(--maroon)] relative inline-block">
       <span class="text-[var(--maroon)]">Services</span>
     </h2>
 
-
     <!-- Carousel Wrapper -->
     <div class="relative overflow-hidden">
       <!-- Track -->
-      <div id="servicesCarousel" class="flex transition-transform duration-700 ease-in-out gap-6">
+      <div id="servicesCarousel" class="flex transition-transform duration-700 ease-in-out">
 
         <!-- Card Template -->
-        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+        <div class="service-card group"
           style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
-
-          <!-- Gradient Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-
-          <!-- Title -->
           <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
             Social Media Marketing
           </h3>
-
-
-          <!-- Overlay Content -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
             <ul class="list-disc list-inside space-y-1">
               <li>Social media management (Instagram, Facebook, TikTok)</li>
@@ -134,12 +130,12 @@
           </div>
         </div>
 
-        <!-- Duplicate Cards (replace titles & overlay content accordingly) -->
-        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+        <!-- Duplicate Cards -->
+        <div class="service-card group"
           style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-        <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
             Content Marketing
           </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
@@ -153,7 +149,7 @@
           </div>
         </div>
 
-        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+        <div class="service-card group"
           style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
@@ -173,7 +169,7 @@
           </div>
         </div>
 
-        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+        <div class="service-card group"
           style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
@@ -192,11 +188,11 @@
           </div>
         </div>
 
-        <div class="service-card relative flex-1 min-w-[260px] md:min-w-[300px] lg:min-w-[320px] h-64 rounded-2xl shadow-lg cursor-pointer overflow-hidden group"
+        <div class="service-card group"
           style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
           onclick="toggleOverlay(this)">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-         <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
             Marketing Strategy & Consulting
           </h3>
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
@@ -224,13 +220,12 @@
   </div>
 </section>
 
-
 <section id="brand-partners" class="py-5 bg-light position-relative overflow-hidden">
   <div class="container text-center">
 
     <!-- Title -->
     <h2 class="section-title text-center mb-10">
-      Our Brand Partners
+      Our Brand Partners <span class="text-danger"></span>
     </h2>
 
     <!-- Infinite Scrolling Wrapper -->
@@ -381,6 +376,7 @@
   </div>
 </section>
 
+
 <!--  Footer Section -->
 <footer class="relative w-full bg-cover bg-center text-white text-center" 
         style="background-image: url('picture/bg.webp');" loading="lazy">
@@ -417,4 +413,3 @@
 
 </body>
 </html>
-
