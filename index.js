@@ -39,10 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCarousel() {
     if (cards.length === 0) return;
 
-    const cardStyle = getComputedStyle(cards[0]);
-    const cardWidth = cards[0].offsetWidth + parseInt(cardStyle.marginRight);
-
+    const cardWidth = cards[0].offsetWidth + 20; // include gap
     let visibleCards;
+
     if (window.innerWidth >= 1024) {
       visibleCards = 3;
     } else if (window.innerWidth >= 768) {
@@ -51,9 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
       visibleCards = 1;
     }
 
-    // Clamp currentIndex
+    // Clamp index
     if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex > cards.length - visibleCards) currentIndex = cards.length - visibleCards;
+    if (currentIndex > cards.length - visibleCards) {
+      currentIndex = cards.length - visibleCards;
+    }
 
     const offset = -currentIndex * cardWidth;
     carousel.style.transform = `translateX(${offset}px)`;
@@ -72,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function toggleOverlay(card) {
-    // Close other overlays
     document.querySelectorAll(".service-overlay").forEach(ov => ov.classList.add("hidden"));
     const overlay = card.querySelector(".service-overlay");
     overlay.classList.toggle("hidden");
@@ -83,14 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.classList.add("hidden");
   }
 
-  // Attach functions to window so inline onclick works
   window.moveCarousel = moveCarousel;
   window.toggleOverlay = toggleOverlay;
   window.closeOverlay = closeOverlay;
 
-  // Optional: update carousel on resize
   window.addEventListener("resize", updateCarousel);
+  updateCarousel(); // run on load
 });
+
+
 
     // Mobile nav toggle
   const navToggle = document.getElementById('nav-toggle');
