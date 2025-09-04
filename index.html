@@ -60,11 +60,11 @@
 
 <!-- Hero Section -->
 <section id="homepage" 
-  class="relative w-full min-h-[calc(100vh-72px)] bg-cover bg-center flex items-center justify-center text-white text-center pt-20" 
-  style="background-image: url('picture/bg.webp');" 
+  class="relative w-full min-h-[calc(100vh-72px)] flex items-center justify-center text-white text-center pt-20 bg-[color:var(--maroon)]" 
   loading="lazy">
   
-  <div class="absolute inset-0 bg-black/60"></div>
+  <!-- Optional: Dark overlay for extra depth -->
+  <div class="absolute inset-0 bg-black/40"></div>
   
   <div class="relative z-10 mb-10 sm:mb-8 md:mb-6 flex flex-col items-center px-4">
     <!-- Logo -->
@@ -98,122 +98,158 @@
 </section>
 
 
-<!-- Services Section --> > 
-<section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative font-poppins">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="mb-12 text-4xl font-bold text-[var(--maroon)] relative inline-block">
-      <span class="text-[var(--maroon)]">Services</span>
-    </h2>
 
-    <!-- Carousel Wrapper -->
+<!-- Services Section --> 
+<!-- SERVICES SECTION -->
+<section id="services" class="relative py-20 font-poppins bg-white text-gray-900">
+    <div class="relative w-full">
+    <!-- Track Wrapper -->
     <div class="relative overflow-hidden">
       <!-- Track -->
-      <div id="servicesCarousel" class="flex transition-transform duration-700 ease-in-out">
+      <div id="servicesCarousel"
+           class="flex gap-6 will-change-transform transition-transform duration-500 ease-in-out select-none">
 
-        <!-- Card Template -->
-        <div class="service-card group"
-          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
-          onclick="toggleOverlay(this)">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+        <!-- CARD 1 -->
+        <div class="service-card relative rounded-2xl overflow-hidden shrink-0
+                    basis-[90%] sm:basis-[48%] lg:basis-[32%] h-56 sm:h-64 md:h-72 cursor-pointer"
+             onclick="toggleOverlay(this)">
+          <!-- Card background + overlay (on the card only) -->
+          <div class="absolute inset-0 rounded-2xl bg-[color:var(--maroon)]"></div>
+          <div class="absolute inset-0 rounded-2xl bg-black/40"></div>
+
+          <!-- Title -->
+          <h3 class="absolute inset-0 flex items-center justify-center text-center z-10
+                     text-white font-bold text-lg sm:text-xl px-5">
             Social Media Marketing
           </h3>
+
+          <!-- Details overlay -->
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
-            <ul class="list-disc list-inside space-y-1">
+            <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
               <li>Social media management (Instagram, Facebook, TikTok)</li>
               <li>Content creation (graphics, captions, videos)</li>
               <li>Engagement & community management</li>
               <li>Influencer outreach & collaboration management</li>
             </ul>
             <button class="mt-4 bg-[var(--maroon)] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900"
-              onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
+                    onclick="event.stopPropagation(); closeOverlay(this)">
+              Close
+            </button>
           </div>
         </div>
 
-        <!-- Duplicate Cards -->
-        <div class="service-card group"
-          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
-          onclick="toggleOverlay(this)">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+        <!-- CARD 2 -->
+        <div class="service-card relative rounded-2xl overflow-hidden shrink-0
+                    basis-[90%] sm:basis-[48%] lg:basis-[32%] h-56 sm:h-64 md:h-72 cursor-pointer"
+             onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 rounded-2xl bg-[color:var(--maroon)]"></div>
+          <div class="absolute inset-0 rounded-2xl bg-black/40"></div>
+
+          <h3 class="absolute inset-0 flex items-center justify-center text-center z-10
+                     text-white font-bold text-lg sm:text-xl px-5">
             Content Marketing
           </h3>
+
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
-            <ul class="list-disc list-inside space-y-1">
-              <li>Content strategy & calendar planning</li>
-              <li>Video scripting & production</li>
+            <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+              <li>Content strategy &amp; calendar planning</li>
+              <li>Video scripting &amp; production</li>
               <li>Visual identity and graphic design</li>
             </ul>
             <button class="mt-4 bg-[var(--maroon)] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900"
-              onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
+                    onclick="event.stopPropagation(); closeOverlay(this)">
+              Close
+            </button>
           </div>
         </div>
 
-        <div class="service-card group"
-          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
-          onclick="toggleOverlay(this)">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
+        <!-- CARD 3 -->
+        <div class="service-card relative rounded-2xl overflow-hidden shrink-0
+                    basis-[90%] sm:basis-[48%] lg:basis-[32%] h-56 sm:h-64 md:h-72 cursor-pointer"
+             onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 rounded-2xl bg-[color:var(--maroon)]"></div>
+          <div class="absolute inset-0 rounded-2xl bg-black/40"></div>
+
+          <h3 class="absolute inset-0 flex items-center justify-center text-center z-10
+                     text-white font-bold text-lg sm:text-xl px-5">
             Influencer / Affiliate / UGC Marketing
           </h3>
+
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
-            <ul class="list-disc list-inside space-y-1">
+            <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
               <li>Campaign planning</li>
-              <li>Influencer discovery & vetting</li>
-              <li>Outreach & negotiation</li>
+              <li>Influencer discovery &amp; vetting</li>
+              <li>Outreach &amp; negotiation</li>
               <li>Campaign execution</li>
-              <li>Monitoring & engagement</li>
+              <li>Monitoring &amp; engagement</li>
             </ul>
             <button class="mt-4 bg-[var(--maroon)] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900"
-              onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
+                    onclick="event.stopPropagation(); closeOverlay(this)">
+              Close
+            </button>
           </div>
         </div>
 
-        <div class="service-card group"
-          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
-          onclick="toggleOverlay(this)">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
-            Events & Partnership Marketing
+        <!-- CARD 4 -->
+        <div class="service-card relative rounded-2xl overflow-hidden shrink-0
+                    basis-[90%] sm:basis-[48%] lg:basis-[32%] h-56 sm:h-64 md:h-72 cursor-pointer"
+             onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 rounded-2xl bg-[color:var(--maroon)]"></div>
+          <div class="absolute inset-0 rounded-2xl bg-black/40"></div>
+
+          <h3 class="absolute inset-0 flex items-center justify-center text-center z-10
+                     text-white font-bold text-lg sm:text-xl px-5">
+            Events &amp; Partnership Marketing
           </h3>
+
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
-            <ul class="list-disc list-inside space-y-1">
+            <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
               <li>Campaign planning</li>
-              <li>Event promotion strategy (online & offline)</li>
-              <li>Partner collaboration planning & coordination</li>
-              <li>Sponsor & partner outreach</li>
+              <li>Event promotion strategy (online &amp; offline)</li>
+              <li>Partner collaboration planning &amp; coordination</li>
+              <li>Sponsor &amp; partner outreach</li>
             </ul>
             <button class="mt-4 bg-[var(--maroon)] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900"
-              onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
+                    onclick="event.stopPropagation(); closeOverlay(this)">
+              Close
+            </button>
           </div>
         </div>
 
-        <div class="service-card group"
-          style="background-image: url('picture/bg.webp'); background-size: cover; background-position: center;"
-          onclick="toggleOverlay(this)">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500 group-hover:from-black/30 group-hover:to-black/10"></div>
-          <h3 class="absolute inset-0 flex items-center justify-center text-lg sm:text-xl font-bold text-white text-center px-4 z-10 transition-all duration-500 group-hover:-translate-y-2">
-            Marketing Strategy & Consulting
+        <!-- CARD 5 -->
+        <div class="service-card relative rounded-2xl overflow-hidden shrink-0
+                    basis-[90%] sm:basis-[48%] lg:basis-[32%] h-56 sm:h-64 md:h-72 cursor-pointer"
+             onclick="toggleOverlay(this)">
+          <div class="absolute inset-0 rounded-2xl bg-[color:var(--maroon)]"></div>
+          <div class="absolute inset-0 rounded-2xl bg-black/40"></div>
+
+          <h3 class="absolute inset-0 flex items-center justify-center text-center z-10
+                     text-white font-bold text-lg sm:text-xl px-5">
+            Marketing Strategy &amp; Consulting
           </h3>
+
           <div class="service-overlay hidden absolute inset-0 bg-white rounded-2xl p-6 z-20 overflow-y-auto text-gray-800">
-            <ul class="list-disc list-inside space-y-1">
+            <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
               <li>Full marketing plan development</li>
               <li>Launch strategies (product, service, business)</li>
-              <li>Audience & competitor research</li>
+              <li>Audience &amp; competitor research</li>
             </ul>
             <button class="mt-4 bg-[var(--maroon)] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900"
-              onclick="event.stopPropagation(); closeOverlay(this)">Close</button>
+                    onclick="event.stopPropagation(); closeOverlay(this)">
+              Close
+            </button>
           </div>
         </div>
+
       </div>
 
-      <!-- Carousel Arrows -->
+      <!-- Arrows -->
       <button onclick="moveCarousel(-1)"
-        class="absolute top-1/2 left-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
+              class="absolute top-1/2 left-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
         &#10094;
       </button>
       <button onclick="moveCarousel(1)"
-        class="absolute top-1/2 right-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
+              class="absolute top-1/2 right-0 -translate-y-1/2 bg-[var(--maroon)] text-white px-3 py-2 rounded-full shadow hover:bg-red-900 z-30 transition-transform duration-300 hover:scale-110">
         &#10095;
       </button>
     </div>
@@ -332,7 +368,6 @@
   </div>
 </section>
 
-
 <!-- Creators club -->
 <section id="creators-club" class="py-12 text-center font-poppins">
 
@@ -376,36 +411,23 @@
   </div>
 </section>
 
-
-<!--  Footer Section -->
-<footer class="relative w-full bg-cover bg-center text-white text-center" 
-        style="background-image: url('picture/bg.webp');" loading="lazy">
+<!-- Footer Section -->
+<footer class="relative w-full text-white text-center bg-[color:var(--maroon)]" loading="lazy">
   
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black/70"></div>
+  <!-- Overlay (same as hero) -->
+  <div class="absolute inset-0 bg-black/40"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-6 py-16">
     <!-- Footer Logo -->
     <img src="picture/text6.webp" alt="Footer Logo" 
          class="mx-auto mb-8 mt-5" style="width:500px;" loading="lazy">
 
-    <!-- Social Icons -->
-    <div class="flex justify-center gap-6 mb-6">
-      <a href="https://web.facebook.com/rddmagic/?_rdc=1&_rdr#" target="_blank">
-        <img src="picture/fb.png" alt="Facebook" 
-            class="w-14 h-14 hover:scale-110 transition">
-      </a>
-      <a href="https://www.instagram.com/rachelsdigitaldesk_/" target="_blank">
-        <img src="picture/IG.png" alt="Instagram" 
-            class="w-14 h-14 hover:scale-110 transition">
-      </a>
-      <a href="tel:+639164102255">
-        <img src="picture/viber.png" alt="Viber" 
-            class="w-14 h-14 hover:scale-110 transition">
-      </a>
-      <a href="mailto:rddmagic@gmail.com">
-        <img src="picture/email.png" alt="Email" 
-            class="w-14 h-14 hover:scale-110 transition">
+    <!-- Email Contact -->
+    <div class="flex justify-center items-center gap-4 text-lg font-medium">
+      <img src="picture/email.png" alt="Email" 
+           class="w-10 h-10 hover:scale-110 transition">
+      <a href="mailto:rddmagic@gmail.com" class="hover:underline">
+        rddmagic@gmail.com
       </a>
     </div>
   </div>
