@@ -30,67 +30,157 @@
       link.addEventListener('mouseleave', () => underline.style.width = '0');
     });
   });
+  
 // services
+
 document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.getElementById("servicesCarousel");
-  const cards = carousel.querySelectorAll(".service-card");
-  let currentIndex = 0;
+  const track = document.getElementById("servicesCarousel");
 
-  function updateCarousel() {
-    if (cards.length === 0) return;
+  // Keep a clean copy of the original cards
+  const originalCards = Array.from(track.querySelectorAll(".service-card"));
 
-    const cardWidth = cards[0].offsetWidth + 20; // include gap
-    let visibleCards;
+  let allCards = [];           
+  let index = 0;               
+  let visible = 1;             
+  let step = 0;                
+  let resizing = false;
 
-    if (window.innerWidth >= 1024) {
-      visibleCards = 3;
-    } else if (window.innerWidth >= 768) {
-      visibleCards = 2;
-    } else {
-      visibleCards = 1;
-    }
-
-    // Clamp index
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex > cards.length - visibleCards) {
-      currentIndex = cards.length - visibleCards;
-    }
-
-    const offset = -currentIndex * cardWidth;
-    carousel.style.transform = `translateX(${offset}px)`;
-
-    // Highlight center card on desktop
-    cards.forEach(c => c.classList.remove("active-card"));
-    if (window.innerWidth >= 1024) {
-      const centerIndex = currentIndex + 1;
-      if (cards[centerIndex]) cards[centerIndex].classList.add("active-card");
-    }
+  function getGapPx() {
+    const cs = getComputedStyle(track);
+    const gap = parseFloat(cs.columnGap || cs.gap || "0");
+    return isNaN(gap) ? 0 : gap;
   }
 
-  function moveCarousel(direction) {
-    currentIndex += direction;
-    updateCarousel();
+  function computeVisible() {
+    const w = window.innerWidth;
+    if (w >= 1024) return 3;
+    if (w >= 768)  return 2;
+    return 1;
+  }
+
+  function measureStep() {
+    // Use first real card to measure width
+    const ref = track.querySelector(".service-card");
+    if (!ref) return 0;
+    const rect = ref.getBoundingClientRect();
+    return rect.width + getGapPx();
+  }
+
+  function clearClones() {
+    // Remove everything then re-add originals
+    track.innerHTML = "";
+    originalCards.forEach(card => track.appendChild(card));
+  }
+
+  function addClones() {
+    // Clone last 'visible' to the start
+    const headClones = originalCards.slice(-visible).map(c => {
+      const n = c.cloneNode(true);
+      n.setAttribute("data-clone", "head");
+      return n;
+    });
+    headClones.forEach(n => track.insertBefore(n, track.firstChild));
+
+    // Clone first 'visible' to the end
+    const tailClones = originalCards.slice(0, visible).map(c => {
+      const n = c.cloneNode(true);
+      n.setAttribute("data-clone", "tail");
+      return n;
+    });
+    tailClones.forEach(n => track.appendChild(n));
+
+    allCards = Array.from(track.querySelectorAll(".service-card"));
+  }
+
+  function setIndexWithoutAnim(newIndex) {
+    track.style.transition = "none";
+    index = newIndex;
+    const offset = -(index * step);
+    track.style.transform = `translateX(${offset}px)`;
+    // Force reflow to apply immediately
+    void track.offsetHeight;
+  }
+
+  function goToIndex(newIndex, withAnim = true) {
+    if (withAnim) {
+      track.style.transition = "transform 500ms ease-in-out";
+    } else {
+      track.style.transition = "none";
+    }
+    index = newIndex;
+    const offset = -(index * step);
+    track.style.transform = `translateX(${offset}px)`;
+  }
+
+  function setup() {
+    // 1) Reset to originals
+    clearClones();
+
+    // 2) Compute visible based on breakpoint
+    visible = computeVisible();
+
+    // 3) Add clones for seamless loop
+    addClones();
+
+    // 4) Measure step (card width + gap) after layout
+    step = measureStep();
+
+    // 5) Start at first real card (after head clones)
+    setIndexWithoutAnim(visible);
+  }
+
+  function moveCarousel(dir) {
+    // Move by 1 card step
+    goToIndex(index + dir, true);
+
+    // After anim, if we are on a clone, jump back to equivalent real card
+    const onTransitionEnd = () => {
+      const current = allCards[index];
+      if (!current) return;
+
+      if (current.getAttribute("data-clone") === "tail") {
+        // We moved past the last real -> jump back by originalCards.length
+        setIndexWithoutAnim(index - originalCards.length);
+      } else if (current.getAttribute("data-clone") === "head") {
+        // We moved before the first real -> jump forward by originalCards.length
+        setIndexWithoutAnim(index + originalCards.length);
+      }
+
+      track.removeEventListener("transitionend", onTransitionEnd);
+    };
+
+    track.addEventListener("transitionend", onTransitionEnd);
   }
 
   function toggleOverlay(card) {
     document.querySelectorAll(".service-overlay").forEach(ov => ov.classList.add("hidden"));
     const overlay = card.querySelector(".service-overlay");
-    overlay.classList.toggle("hidden");
+    if (overlay) overlay.classList.toggle("hidden");
   }
 
   function closeOverlay(button) {
     const overlay = button.closest(".service-overlay");
-    overlay.classList.add("hidden");
+    if (overlay) overlay.classList.add("hidden");
   }
 
+  // Expose to buttons
   window.moveCarousel = moveCarousel;
   window.toggleOverlay = toggleOverlay;
   window.closeOverlay = closeOverlay;
 
-  window.addEventListener("resize", updateCarousel);
-  updateCarousel(); // run on load
-});
+  // Debounced resize to keep it smooth & responsive
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // Re-setup to adjust visible & step
+      setup();
+    }, 150);
+  });
 
+  // Initial
+  setup();
+});
 
 
     // Mobile nav toggle
